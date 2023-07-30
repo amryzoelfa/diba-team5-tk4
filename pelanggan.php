@@ -26,7 +26,7 @@ class Pelanggan {
         return $conn->query($query);
     }
 
-    public function updatePelanggan($id, $namaPelanggan, $alamatPelanggan, $telpPelanggana) {
+    public function updatePelanggan($id, $namaPelanggan, $alamatPelanggan, $telpPelanggan) {
         global $conn;
         $query = "UPDATE pelanggan SET NamaPelanggan = '$namaPelanggan', AlamatPelanggan = '$alamatPelanggan', TelpPelanggan = '$telpPelanggan' WHERE IdPelanggan = $id";
         return $conn->query($query);
