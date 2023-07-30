@@ -1,5 +1,4 @@
 <?php
-require_once 'koneksi.php';
 require_once 'penjualan.php';
 
 if (isset($_POST['submit_tambah'])) {
