@@ -21,13 +21,13 @@ if (isset($_POST['submit_ubah'])) {
     $telpPelanggan = $_POST['telp_pelanggan'];
 
     $pelanggan = new Pelanggan();
-    $result = $pelanggan->addPelanggan($idPelanggan, $namaPelanggan, $alamatPelanggan, $telpPelanggan);
+    $result = $pelanggan->updatePelanggan($idPelanggan, $namaPelanggan, $alamatPelanggan, $telpPelanggan);
 
     if ($result) {
-        echo "<script type='text/javascript'>alert('Data barang berhasil diubah!'); window.location='barangIndex.php';</script>";
+        echo "<script type='text/javascript'>alert('Data pelanggan berhasil diubah!'); window.location='pelangganIndex.php';</script>";
         exit;
     } else {
-        echo "<p>Gagal mengubah data barang.</p>";
+        echo "<p>Gagal mengubah data pelanggan.</p>";
     }
 }
 ?>
@@ -35,24 +35,21 @@ if (isset($_POST['submit_ubah'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ubah Barang</title>
+    <title>Ubah Pelanggan</title>
 </head>
 <body>
-    <h1>Ubah Barang</h1>
-    <form method="post" action="edit_barang.php">
-        <input type="hidden" name="id_barang" value="<?php echo $dataBarang['IdBarang']; ?>">
+    <h1>Ubah Pelanggan</h1>
+    <form method="post" action="pelangganUpdate.php">
+        <input type="hidden" name="id_pelanggan" value="<?php echo $dataPelanggan['IdPelanggan']; ?>">
 
-        <label>Nama Barang:</label>
-        <input type="text" name="nama_barang" value="<?php echo $dataBarang['NamaBarang']; ?>" required><br>
+        <label>Nama Pelanggan :</label>
+        <input type="text" name="nama_pelanggan" value="<?php echo $dataPelanggan['NamaPelanggan']; ?>" required><br>
 
-        <label>Keterangan:</label>
-        <input type="text" name="keterangan" value="<?php echo $dataBarang['Keterangan']; ?>"><br>
+        <label>Alamat Pelanggan :</label>
+        <input type="text" name="alamat_pelanggan" value="<?php echo $dataPelanggan['AlamatPelanggan']; ?>"><br>
 
-        <label>Satuan:</label>
-        <input type="text" name="satuan" value="<?php echo $dataBarang['Satuan']; ?>"><br>
-
-        <label>ID Pengguna:</label>
-        <input type="text" name="id_pengguna" value="<?php echo $dataBarang['IdPengguna']; ?>" required><br>
+        <label>Telp Pelanggan :</label>
+        <input type="text" name="telp_pelanggan" value="<?php echo $dataPelanggan['TelpPelanggan']; ?>"><br>
 
         <input type="submit" name="submit_ubah" value="Ubah">
     </form>
